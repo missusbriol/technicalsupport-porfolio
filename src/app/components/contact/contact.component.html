@@ -1,0 +1,27 @@
+<section id="contact" class="section contact-section">
+  <div class="wrap contact-wrap">
+    <div appReveal class="reveal">
+      <p class="eyebrow">Let's work together</p>
+      <h2>Ready when you are</h2>
+      <p class="section-sub">
+        Looking for someone who can communicate with customers, troubleshoot technical issues,
+        and understand the technology behind them?
+      </p>
+      <button class="btn btn-accent" (click)="scrollTo('contact')">Get in touch →</button>
+    </div>
+
+    <div class="contact-icons">
+      <a
+        class="contact-icon"
+        *ngFor="let c of contacts"
+        [href]="c.href"
+        [title]="c.label"
+        target="_blank"
+        rel="noopener noreferrer">
+        <span class="contact-icon-circle" [style.background]="c.bg">{{ c.mark }}</span>
+        <span class="contact-icon-label">{{ c.label }}</span>
+        <span class="contact-icon-value muted">{{ c.value }}</span>
+      </a>
+    </div>
+  </div>
+</section>

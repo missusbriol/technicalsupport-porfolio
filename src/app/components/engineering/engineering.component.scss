@@ -1,0 +1,6 @@
+.eng-col { display: flex; flex-direction: column; align-items: center; max-width: 220px; }
+.eng-node {
+  background: var(--panel); border: 1px solid var(--line-strong); border-radius: 14px; padding: 12px 24px;
+  font-size: 13px; font-weight: 500; color: var(--ink); width: 100%; text-align: center;
+}
+.eng-conn { width: 2px; height: 26px; background: linear-gradient(180deg, var(--pink), var(--lavender)); margin: 2px 0; }

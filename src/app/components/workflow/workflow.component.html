@@ -1,0 +1,16 @@
+<section class="section section-alt">
+  <div class="wrap">
+    <app-section-header eyebrow="How I handle a problem" heading="Support workflow"></app-section-header>
+
+    <div class="flow-grid">
+      <ng-container *ngFor="let s of steps; let last = last">
+        <div appReveal class="reveal flow-step">
+          <div class="flow-icon-wrap">{{ s.icon }}</div>
+          <span class="flow-num">{{ s.n }}</span>
+          <span class="flow-label">{{ s.label }}</span>
+        </div>
+        <div class="flow-arrow" *ngIf="!last" aria-hidden="true">→</div>
+      </ng-container>
+    </div>
+  </div>
+</section>

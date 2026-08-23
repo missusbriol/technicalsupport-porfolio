@@ -1,0 +1,20 @@
+.tool-field { display: flex; flex-wrap: wrap; gap: 26px; justify-content: center; padding: 20px 0; }
+.tool-box {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  animation: floatBox var(--float-dur, 7s) ease-in-out infinite;
+  animation-delay: var(--float-delay, 0s);
+}
+@keyframes floatBox { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-10px) rotate(1.2deg); } }
+@media (prefers-reduced-motion: reduce) { .tool-box { animation: none; } }
+.tool-box-inner {
+  width: 76px; height: 76px; border-radius: 20px; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 12px 28px -12px rgba(80, 60, 100, 0.35); border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.tool-box:hover .tool-box-inner, .tool-box:focus-within .tool-box-inner {
+  transform: scale(1.08); box-shadow: 0 16px 34px -10px rgba(120, 90, 160, 0.5); animation-play-state: paused;
+}
+.tool-box:hover, .tool-box:focus-within { animation-play-state: paused; }
+.tool-box-inner-ghost { background: var(--panel); border: 1.5px dashed var(--line-strong); }
+.tool-caption { font-size: 11.5px; color: var(--ink-soft); font-weight: 500; }
+@media (max-width: 600px) { .tool-box-inner { width: 60px; height: 60px; border-radius: 16px; } }

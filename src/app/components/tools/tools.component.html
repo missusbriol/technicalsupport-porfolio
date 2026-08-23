@@ -1,0 +1,28 @@
+<section id="tools" class="section section-alt">
+  <div class="wrap">
+    <app-section-header eyebrow="Tools I use" heading="A familiar, professional toolkit"></app-section-header>
+
+    <div class="tool-field">
+      <div
+        class="tool-box"
+        *ngFor="let t of tools; let i = index"
+        [style.--float-delay]="floatDelay(i)"
+        [style.--float-dur]="floatDur(i)"
+        [title]="t.label">
+        <div class="tool-box-inner" [style.background]="t.bg">
+          <img [src]="t.icon" [alt]="t.label" width="26" height="26" />
+        </div>
+        <span class="tool-caption">{{ t.label }}</span>
+      </div>
+
+      <div
+        class="tool-box tool-box-ghost"
+        *ngFor="let p of placeholders; let i = index"
+        [style.--float-delay]="(i * 0.9) + 's'"
+        [style.--float-dur]="(7 + i) + 's'">
+        <div class="tool-box-inner tool-box-inner-ghost"></div>
+        <span class="tool-caption muted">{{ p }}</span>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,13 @@
+<section id="capabilities" class="section">
+  <div class="wrap">
+    <app-section-header eyebrow="What I bring to support" heading="Capabilities"></app-section-header>
+
+    <div class="cap-grid">
+      <div appReveal class="reveal cap-card" *ngFor="let c of capabilities">
+        <div class="cap-icon-wrap">{{ c.icon }}</div>
+        <h3>{{ c.title }}</h3>
+        <p class="card-body">{{ c.body }}</p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,4 @@
+.intl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.intl-card { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 24px; }
+.intl-icon { display: block; font-size: 19px; color: var(--lavender); margin-bottom: 10px; }
+@media (max-width: 760px) { .intl-grid { grid-template-columns: 1fr; } }

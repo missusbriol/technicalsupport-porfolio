@@ -1,0 +1,22 @@
+<section id="support" class="section">
+  <div class="wrap">
+    <app-section-header eyebrow="Support experience" heading="Where I've supported users"></app-section-header>
+
+    <div class="support-grid">
+      <div appReveal class="reveal support-card">
+        <div class="support-icon-wrap support-icon-pink">🎧</div>
+        <h3>L2 support</h3>
+        <ul class="support-list">
+          <li *ngFor="let i of l2"><span class="check">✓</span>{{ i }}</li>
+        </ul>
+      </div>
+      <div appReveal class="reveal support-card">
+        <div class="support-icon-wrap support-icon-lavender">⭐</div>
+        <h3>L3 support</h3>
+        <ul class="support-list">
+          <li *ngFor="let i of l3"><span class="check">✓</span>{{ i }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

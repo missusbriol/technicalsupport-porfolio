@@ -1,0 +1,27 @@
+<section id="home" class="hero">
+  <div class="wrap hero-inner">
+    <div appReveal class="reveal hero-text">
+      <p class="eyebrow">Technical Customer Support Specialist</p>
+      <h1>Hi, I'm<br /><span class="script">Casandra Briol</span></h1>
+      <p class="hero-role">Customer Support · L2/L3 Support · QA · Software Development</p>
+      <p class="hero-statement">I bridge the gap between <span class="accent-word">customers</span> and <span class="accent-word-2">technology</span>.</p>
+      <p class="hero-lede">
+        I combine customer communication, technical troubleshooting, QA thinking, and software
+        development experience to help resolve issues efficiently and communicate clearly with
+        technical teams.
+      </p>
+      <div class="hero-ctas">
+        <button class="btn btn-accent" (click)="scrollTo('experience')">Explore my experience →</button>
+        <button class="btn btn-ghost" (click)="scrollTo('contact')">Let's work together</button>
+      </div>
+    </div>
+    <div class="hero-photo-wrap">
+      <div class="hero-photo">[YOUR PHOTO]</div>
+    </div>
+  </div>
+  <div class="traits-strip">
+    <div class="wrap traits-inner">
+      <span class="trait-pill" *ngFor="let t of traits">{{ t }}</span>
+    </div>
+  </div>
+</section>

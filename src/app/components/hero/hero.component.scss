@@ -1,0 +1,23 @@
+.hero { padding-top: 64px; }
+.hero-inner { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px; align-items: center; padding: 56px 0 48px; }
+.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--pink); margin: 0 0 10px; }
+h1 span { display: block; }
+.hero-role { font-size: 14.5px; color: var(--ink-soft); margin: 16px 0 0; }
+.hero-statement { font-family: var(--font-heading); font-size: 22px; margin: 18px 0 16px; color: var(--ink); }
+.hero-lede { color: var(--ink-soft); line-height: 1.75; max-width: 520px; margin: 0 0 28px; }
+.hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+.hero-photo-wrap { display: flex; justify-content: center; }
+.hero-photo {
+  width: 100%; max-width: 340px; aspect-ratio: 3 / 4; border-radius: 28px;
+  background: linear-gradient(160deg, var(--panel-2), var(--bg-2));
+  border: 1px solid var(--line); display: flex; align-items: center; justify-content: center;
+  color: var(--ink-dim); box-shadow: 0 20px 50px -20px rgba(120, 90, 150, 0.35); font-size: 12px;
+}
+.traits-strip { border-top: 1px solid var(--line); padding: 16px 0; }
+.traits-inner { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+.trait-pill { font-size: 12px; font-weight: 500; color: var(--ink-soft); background: var(--panel); border: 1px solid var(--line); padding: 6px 14px; border-radius: 999px; }
+@media (max-width: 860px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-photo-wrap { order: -1; }
+  h1 { font-size: 32px; }
+}

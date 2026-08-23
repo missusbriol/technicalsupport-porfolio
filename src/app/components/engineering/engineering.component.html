@@ -1,0 +1,16 @@
+<section class="section">
+  <div class="wrap">
+    <app-section-header
+      eyebrow="My engineering advantage"
+      heading="Seeing every side of a problem"
+      subtext="My QA and software development background allows me to understand customer problems from both the user and technical perspective.">
+    </app-section-header>
+
+    <div class="eng-col">
+      <ng-container *ngFor="let n of nodes; let last = last">
+        <div class="eng-node">{{ n }}</div>
+        <div class="eng-conn" *ngIf="!last"></div>
+      </ng-container>
+    </div>
+  </div>
+</section>

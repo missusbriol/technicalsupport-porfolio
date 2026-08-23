@@ -1,0 +1,34 @@
+<header class="nav">
+  <div class="wrap nav-inner">
+    <button class="brand" (click)="scrollTo('home')">
+      <span class="brand-script script">Casandra</span>
+      <span class="brand-sub">TECHNICAL SUPPORT SPECIALIST</span>
+    </button>
+
+    <nav class="nav-links">
+      <button *ngFor="let l of links" class="nav-link" (click)="scrollTo(l.id)">{{ l.label }}</button>
+    </nav>
+
+    <button
+      class="theme-toggle"
+      type="button"
+      role="switch"
+      [attr.aria-checked]="themeService.theme() === 'dark'"
+      [attr.aria-label]="themeService.theme() === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
+      (click)="themeService.toggle()">
+      <span class="theme-icon">☀</span>
+      <span class="theme-track" [class.theme-track-on]="themeService.theme() === 'dark'">
+        <span class="theme-knob"></span>
+      </span>
+      <span class="theme-icon">☾</span>
+    </button>
+
+    <button class="nav-burger" aria-label="Open menu" (click)="toggleMenu()">
+      {{ menuOpen() ? '✕' : '☰' }}
+    </button>
+  </div>
+
+  <div class="nav-mobile" *ngIf="menuOpen()">
+    <button *ngFor="let l of links" class="nav-mobile-link" (click)="scrollTo(l.id)">{{ l.label }}</button>
+  </div>
+</header>

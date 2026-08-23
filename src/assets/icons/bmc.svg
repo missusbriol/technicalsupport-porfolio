@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="BMC">
+  <rect width="48" height="48" rx="10" fill="#FFEEE0"/>
+  <path d="M11 18a3 3 0 0 1 3-3h20a3 3 0 0 1 3 3v3a2.4 2.4 0 0 0 0 4.8V29a3 3 0 0 1-3 3H14a3 3 0 0 1-3-3v-3.2a2.4 2.4 0 0 0 0-4.8V18z" fill="#FF6600"/>
+  <text x="24" y="26" font-family="Arial, sans-serif" font-size="9" fill="#fff" text-anchor="middle" font-weight="700">BMC</text>
+</svg>

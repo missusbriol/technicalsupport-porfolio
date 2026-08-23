@@ -1,0 +1,19 @@
+<section id="experience" class="section section-alt">
+  <div class="wrap">
+    <app-section-header eyebrow="Experience journey" heading="How I got here"></app-section-header>
+
+    <div class="timeline">
+      <div appReveal class="reveal timeline-row" *ngFor="let t of timeline; let i = index; let last = last">
+        <div class="timeline-mark">
+          <div class="timeline-dot"></div>
+          <div class="timeline-line" *ngIf="!last"></div>
+        </div>
+        <div class="timeline-body">
+          <span class="timeline-date">{{ t.date }}</span>
+          <h3>{{ t.title }}</h3>
+          <p class="card-body">{{ t.body }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
