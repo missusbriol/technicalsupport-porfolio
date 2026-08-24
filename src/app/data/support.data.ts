@@ -5,7 +5,7 @@ export const L2: string[] = [
   'Supported SharePoint',
   'Supported OneDrive',
   'Supported Microsoft Teams',
-  'Worked with a German client (their time zone)',
+  'Worked with a German company with international operations (their time zone)',
 ];
 
 export const L3: string[] = [

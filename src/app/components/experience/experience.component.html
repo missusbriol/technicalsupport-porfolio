@@ -10,8 +10,10 @@
         </div>
         <div class="timeline-body">
           <span class="timeline-date">{{ t.date }}</span>
-          <h3>{{ t.title }}</h3>
-          <p class="card-body">{{ t.body }}</p>
+          <div *ngFor="let item of t.items">
+            <h3>{{ item.title }}</h3>
+            <p class="card-body">{{ item.body }}</p><br />
+          </div>
         </div>
       </div>
     </div>

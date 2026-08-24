@@ -10,7 +10,9 @@ export const TOOLS: Tool[] = [
   { id: 'onedrive',    label: 'OneDrive',    icon: 'assets/icons/onedrive.svg',    bg: '#0364B8' },
   { id: 'bmc',         label: 'BMC',         icon: 'assets/icons/bmc.svg',         bg: '#FF6600' },
   { id: 'servicedesk', label: 'ServiceDesk', icon: 'assets/icons/servicedesk.svg', bg: '#4CAF93' },
+  { id: 'chatgpt',      label: 'ChatGPT',      icon: 'assets/icons/chatgpt.svg',      bg: '#10A37F' },
+  { id: 'discord',      label: 'Discord',      icon: 'assets/icons/discord.svg',      bg: '#5865F2' },
+  { id: 'slack',        label: 'Slack',        icon: 'assets/icons/slack.svg',        bg: '#4A154B' },
+  { id: 'canva',        label: 'Canva',        icon: 'assets/icons/canva.svg',        bg: '#00C4CC' },
+  { id: 'notion',       label: 'Notion',       icon: 'assets/icons/notion.svg',       bg: '#000000' },
 ];
-
-/** Open slots shown as ghost/dashed boxes - replace or remove. */
-export const TOOL_PLACEHOLDERS = ['[ADD TOOL]', '[ADD TOOL]', '[ADD TOOL]'];

@@ -2,12 +2,8 @@ import { Component, ElementRef, OnDestroy, AfterViewInit, ViewChild, inject } fr
 import { ThemeService } from '../../services/theme.service';
 
 interface Node { x: number; y: number; vx: number; vy: number; r: number; }
+interface Pulse { x: number; y: number; tx: number; ty: number; t: number; }
 
-/**
- * Soft, slow canvas network background - same technique as the other
- * portfolio project (plain Canvas 2D, no libraries), recolored to the
- * pink/lavender palette and reading ThemeService directly for dark mode.
- */
 @Component({
   selector: 'app-animated-background',
   standalone: true,
@@ -20,6 +16,8 @@ export class AnimatedBackgroundComponent implements AfterViewInit, OnDestroy {
 
   private ctx!: CanvasRenderingContext2D;
   private nodes: Node[] = [];
+  private pulses: Pulse[] = [];
+  private pulseTimer = 0;
   private raf: number | null = null;
   private running = true;
   private reducedMotion = false;
@@ -61,29 +59,21 @@ export class AnimatedBackgroundComponent implements AfterViewInit, OnDestroy {
     canvas.height = this.height * this.dpr;
     this.ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
 
-    const count = this.width < 700 ? 14 : 26;
+    const count = this.width < 700 ? 18 : 34;
     this.nodes = Array.from({ length: count }, () => ({
       x: Math.random() * this.width,
       y: Math.random() * this.height,
-      vx: (Math.random() - 0.5) * 0.05,
-      vy: (Math.random() - 0.5) * 0.05,
-      r: Math.random() * 1.6 + 1.2,
+      vx: (Math.random() - 0.5) * 0.07,
+      vy: (Math.random() - 0.5) * 0.07,
+      r: Math.random() * 1.4 + 1,
     }));
-  }
-
-  private colors() {
-    const dark = this.themeService.theme() === 'dark';
-    return {
-      line: dark ? '150,140,220' : '190,150,200',
-      node: dark ? '190,180,240' : '210,160,190',
-    };
+    this.pulses = [];
   }
 
   private drawStaticFrame(): void {
-    const { node } = this.colors();
     this.ctx.clearRect(0, 0, this.width, this.height);
     for (const n of this.nodes) {
-      this.ctx.fillStyle = `rgba(${node},0.35)`;
+      this.ctx.fillStyle = 'rgba(140,170,245,0.4)';
       this.ctx.beginPath();
       this.ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
       this.ctx.fill();
@@ -93,22 +83,23 @@ export class AnimatedBackgroundComponent implements AfterViewInit, OnDestroy {
   private step = (): void => {
     if (!this.running) return;
     const ctx = this.ctx;
-    const { line, node } = this.colors();
     ctx.clearRect(0, 0, this.width, this.height);
 
+    // Layer 2: nodes drift
     for (const n of this.nodes) {
       n.x += n.vx; n.y += n.vy;
       if (n.x < 0 || n.x > this.width) n.vx *= -1;
       if (n.y < 0 || n.y > this.height) n.vy *= -1;
     }
 
-    const maxDist = this.width < 700 ? 100 : 140;
+    // Layer 3: connection lines between nearby nodes
+    const maxDist = this.width < 700 ? 110 : 150;
     for (let i = 0; i < this.nodes.length; i++) {
       for (let j = i + 1; j < this.nodes.length; j++) {
         const a = this.nodes[i], b = this.nodes[j];
         const dist = Math.hypot(a.x - b.x, a.y - b.y);
         if (dist < maxDist) {
-          ctx.strokeStyle = `rgba(${line},${0.10 * (1 - dist / maxDist)})`;
+          ctx.strokeStyle = `rgba(94,141,239,${0.14 * (1 - dist / maxDist)})`;
           ctx.lineWidth = 1;
           ctx.beginPath();
           ctx.moveTo(a.x, a.y);
@@ -119,9 +110,29 @@ export class AnimatedBackgroundComponent implements AfterViewInit, OnDestroy {
     }
 
     for (const n of this.nodes) {
-      ctx.fillStyle = `rgba(${node},0.5)`;
+      ctx.fillStyle = 'rgba(140,170,245,0.55)';
       ctx.beginPath();
       ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    // Layer 4: occasional glowing pulse traveling between two nodes
+    this.pulseTimer++;
+    if (this.pulseTimer > 90 && this.nodes.length > 4) {
+      this.pulseTimer = 0;
+      const a = this.nodes[Math.floor(Math.random() * this.nodes.length)];
+      const b = this.nodes[Math.floor(Math.random() * this.nodes.length)];
+      this.pulses.push({ x: a.x, y: a.y, tx: b.x, ty: b.y, t: 0 });
+    }
+    for (let i = this.pulses.length - 1; i >= 0; i--) {
+      const p = this.pulses[i];
+      p.t += 0.02;
+      if (p.t >= 1) { this.pulses.splice(i, 1); continue; }
+      const px = p.x + (p.tx - p.x) * p.t;
+      const py = p.y + (p.ty - p.y) * p.t;
+      ctx.fillStyle = 'rgba(227,168,87,0.85)';
+      ctx.beginPath();
+      ctx.arc(px, py, 1.8, 0, Math.PI * 2);
       ctx.fill();
     }
 

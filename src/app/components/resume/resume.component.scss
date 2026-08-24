@@ -1,0 +1,359 @@
+/* =========================================================
+   RESUME / PROFESSIONAL PROFILE
+   Uses the same theme variables as the rest of the portfolio
+   ========================================================= */
+
+.resume-card {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+
+  align-items: center;
+  gap: 48px;
+
+  min-height: 260px;
+  padding: 48px 52px;
+
+  overflow: hidden;
+
+  background: var(--panel);
+
+  border: 1px solid var(--line);
+  border-radius: 28px;
+
+  box-shadow:
+    0 20px 55px rgba(68, 48, 72, 0.07),
+    0 4px 15px rgba(68, 48, 72, 0.035);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+
+/* =========================================================
+   SOFT DECORATIVE GLOW
+   ========================================================= */
+
+.resume-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 320px;
+  height: 320px;
+
+  top: -180px;
+  right: -100px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(215, 126, 178, 0.16),
+      rgba(155, 131, 220, 0.06) 50%,
+      transparent 72%
+    );
+
+  pointer-events: none;
+
+  animation: resumeGlow 7s ease-in-out infinite;
+}
+
+
+.resume-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  bottom: -110px;
+  left: 35%;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(155, 131, 220, 0.08),
+      transparent 70%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   PROFILE TEXT
+   ========================================================= */
+
+.resume-card .card-body {
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 700px;
+
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 1rem;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   SMALL PROFESSIONAL LABEL
+   ========================================================= */
+
+.resume-card .card-body::before {
+  content: "TECHNICAL CUSTOMER SUPPORT";
+
+  display: block;
+
+  margin-bottom: 14px;
+
+  color: var(--pink);
+
+  font-size: 0.7rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.13em;
+
+  line-height: 1.4;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   DOWNLOAD BUTTON
+   ========================================================= */
+
+.resume-card .btn {
+  position: relative;
+
+  z-index: 3;
+
+  justify-self: center;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-width: 175px;
+
+  padding: 14px 22px;
+
+  border: none;
+
+  border-radius: 999px;
+
+  background: var(--ink);
+
+  color: var(--bg);
+
+  font-size: 0.88rem;
+
+  font-weight: 700;
+
+  line-height: 1;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 12px 25px rgba(48, 38, 56, 0.16);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    opacity 0.3s ease;
+}
+
+
+/* =========================================================
+   DOWNLOAD ICON
+   ========================================================= */
+
+.resume-card .btn::before {
+  content: "↓";
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 22px;
+  height: 22px;
+
+  margin-right: 8px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.12);
+
+  font-size: 0.85rem;
+
+  transition: transform 0.3s ease;
+}
+
+
+/* =========================================================
+   BUTTON HOVER
+   ========================================================= */
+
+.resume-card .btn:hover {
+  transform: translateY(-3px);
+
+  opacity: 0.9;
+
+  box-shadow:
+    0 16px 32px rgba(48, 38, 56, 0.22);
+}
+
+
+.resume-card .btn:hover::before {
+  transform: translateY(2px);
+}
+
+
+/* =========================================================
+   CARD HOVER
+   ========================================================= */
+
+.resume-card:hover {
+  transform: translateY(-3px);
+
+  border-color: var(--pink);
+
+  box-shadow:
+    0 25px 65px rgba(68, 48, 72, 0.1),
+    0 6px 18px rgba(68, 48, 72, 0.05);
+}
+
+
+/* =========================================================
+   ANIMATION
+   ========================================================= */
+
+@keyframes resumeGlow {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 760px) {
+  .resume-card {
+    grid-template-columns: 1fr;
+
+    gap: 28px;
+
+    min-height: auto;
+
+    padding: 38px 30px;
+
+    text-align: center;
+  }
+
+  .resume-card .card-body {
+    max-width: 100%;
+  }
+
+  .resume-card .card-body::before {
+    margin-bottom: 12px;
+  }
+
+  .resume-card .btn {
+    justify-self: center;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+  .resume-card {
+    padding: 32px 22px;
+
+    border-radius: 22px;
+  }
+
+  .resume-card .card-body {
+    font-size: 0.9rem;
+
+    line-height: 1.7;
+  }
+
+  .resume-card .card-body::before {
+    font-size: 0.65rem;
+
+    letter-spacing: 0.11em;
+  }
+
+  .resume-card .btn {
+    min-width: 160px;
+
+    padding: 13px 19px;
+
+    font-size: 0.82rem;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 360px) {
+  .resume-card {
+    padding: 28px 18px;
+  }
+
+  .resume-card .btn {
+    width: 100%;
+
+    min-width: 0;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .resume-card,
+  .resume-card::before,
+  .resume-card::after,
+  .resume-card .btn,
+  .resume-card .btn::before {
+    animation: none;
+
+    transition: none;
+  }
+}

@@ -1,23 +1,736 @@
-.hero { padding-top: 64px; }
-.hero-inner { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px; align-items: center; padding: 56px 0 48px; }
-.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--pink); margin: 0 0 10px; }
-h1 span { display: block; }
-.hero-role { font-size: 14.5px; color: var(--ink-soft); margin: 16px 0 0; }
-.hero-statement { font-family: var(--font-heading); font-size: 22px; margin: 18px 0 16px; color: var(--ink); }
-.hero-lede { color: var(--ink-soft); line-height: 1.75; max-width: 520px; margin: 0 0 28px; }
-.hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
-.hero-photo-wrap { display: flex; justify-content: center; }
-.hero-photo {
-  width: 100%; max-width: 340px; aspect-ratio: 3 / 4; border-radius: 28px;
-  background: linear-gradient(160deg, var(--panel-2), var(--bg-2));
-  border: 1px solid var(--line); display: flex; align-items: center; justify-content: center;
-  color: var(--ink-dim); box-shadow: 0 20px 50px -20px rgba(120, 90, 150, 0.35); font-size: 12px;
+/* =========================
+   HERO
+   ========================= */
+
+.hero {
+  padding-top: 64px;
 }
-.traits-strip { border-top: 1px solid var(--line); padding: 16px 0; }
-.traits-inner { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
-.trait-pill { font-size: 12px; font-weight: 500; color: var(--ink-soft); background: var(--panel); border: 1px solid var(--line); padding: 6px 14px; border-radius: 999px; }
-@media (max-width: 860px) {
-  .hero-inner { grid-template-columns: 1fr; }
-  .hero-photo-wrap { order: -1; }
-  h1 { font-size: 32px; }
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+  gap: 48px;
+  align-items: center;
+  padding: 56px 0 48px;
+}
+
+
+/* =========================
+   HERO TEXT
+   ========================= */
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pink);
+  margin: 0 0 10px;
+}
+
+h1 {
+  margin: 0;
+  line-height: 1.1;
+}
+
+h1 span {
+  display: block;
+}
+
+.hero-role {
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  margin: 16px 0 0;
+  line-height: 1.5;
+}
+
+.hero-statement {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  line-height: 1.35;
+  margin: 18px 0 16px;
+  color: var(--ink);
+}
+
+.hero-lede {
+  color: var(--ink-soft);
+  line-height: 1.75;
+  max-width: 520px;
+  margin: 0 0 28px;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+
+/* =========================
+   HERO VISUAL
+   ========================= */
+
+.hero-visual {
+  position: relative;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+}
+
+
+/* Soft pink / lavender glow */
+
+.hero-visual::before {
+  content: "";
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(227, 143, 176, 0.18) 0%,
+      rgba(155, 123, 229, 0.10) 45%,
+      transparent 72%
+    );
+
+  filter: blur(10px);
+  z-index: -2;
+}
+
+
+/* Subtle decorative ring */
+
+.hero-visual::after {
+  content: "";
+  position: absolute;
+  width: 330px;
+  height: 330px;
+
+  border: 1px solid rgba(190, 140, 190, 0.16);
+  border-radius: 50%;
+
+  transform: rotate(-18deg);
+
+  z-index: -1;
+}
+
+
+/* =========================
+   PHOTO FRAME
+   ========================= */
+
+.photo-frame {
+  position: relative;
+
+  width: 92%;
+  max-width: 290px;
+  aspect-ratio: 3 / 4;
+
+  border-radius: 28px;
+
+  /* Soft feminine background */
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.96),
+      rgba(250, 235, 244, 0.88)
+    );
+
+  border: 1px solid rgba(190, 150, 185, 0.35);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 25px 60px -25px rgba(120, 70, 100, 0.35),
+    0 0 0 7px rgba(255, 255, 255, 0.45),
+    0 0 45px rgba(227, 143, 176, 0.10);
+
+  isolation: isolate;
+
+  z-index: 1;
+}
+
+
+/* Inner decorative border */
+
+.photo-frame::before {
+  content: "";
+
+  position: absolute;
+  inset: 10px;
+
+  border-radius: 20px;
+
+  border: 1px solid rgba(227, 143, 176, 0.22);
+
+  pointer-events: none;
+
+  z-index: 2;
+}
+
+
+/* Soft decorative glow in upper-right corner */
+
+.photo-frame::after {
+  content: "";
+
+  position: absolute;
+
+  width: 200px;
+  height: 200px;
+
+  top: -65px;
+  right: -55px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(227, 143, 176, 0.25) 0%,
+      rgba(155, 123, 229, 0.12) 45%,
+      transparent 72%
+    );
+
+  pointer-events: none;
+
+  z-index: 2;
+}
+
+
+/* =========================
+   PHOTO
+   ========================= */
+
+.hero-photo {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+  object-position: center top;
+
+  border-radius: inherit;
+
+  position: relative;
+  z-index: 1;
+}
+
+
+/* =========================
+   DECORATIVE DOTS
+   ========================= */
+
+.hero-decoration {
+  position: absolute;
+  border-radius: 80%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-decoration-1 {
+  width: 90px;
+  height: 90px;
+  background: var(--pink);
+  top: 80%;
+  left: 14%;
+  opacity: 0.55;
+}
+
+.hero-decoration-2 {
+  width: 100px;
+  height: 100px;
+  background: #9b7be5;
+  top: 20%;
+  right: 70%;
+  opacity: 0.45;
+}
+
+.hero-decoration-3 {
+  width: 80px;
+  height: 80px;
+  background: #d9a86c;
+  bottom: 34%;
+  left: 70%;
+  opacity: 0.5;
+}
+
+
+/* =========================
+   ORBIT
+   ========================= */
+
+.hero-orbit {
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  border: 1px solid rgba(100, 72, 128, 0.12);
+  border-radius: 50%;
+
+  transform: rotate(-25deg);
+
+  animation: orbitFloat 8s ease-in-out infinite;
+
+  z-index: -1;
+}
+
+@keyframes orbitFloat {
+  0%,
+  100% {
+    transform: rotate(-25deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(-20deg) scale(1.02);
+  }
+}
+
+
+/* =========================
+   FLOATING CARDS
+   ========================= */
+
+.float-card {
+  position: absolute;
+
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+
+  background: var(--panel);
+
+  border: 1px solid var(--line);
+  border-radius: 12px;
+
+  padding: 10px 14px;
+
+  box-shadow: var(--shadow-soft);
+
+  animation: floatCard 7s ease-in-out infinite;
+
+  min-width: 150px;
+
+  z-index: 3;
+}
+
+.fc-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.fc-sub {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  font-size: 10.5px;
+  color: var(--ink-dim);
+}
+
+.fc-dot {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #4caf93;
+
+  flex-shrink: 0;
+}
+
+
+/* Card 1 — upper left */
+
+.float-card:nth-last-child(4) {
+  top: 8%;
+  left: -3%;
+}
+
+
+/* Card 2 — upper right */
+
+.float-card:nth-last-child(3) {
+  top: 12%;
+  right: -3%;
+}
+
+
+/* Card 3 — lower left */
+
+.float-card:nth-last-child(2) {
+  bottom: 13%;
+  left: -5%;
+}
+
+
+/* Card 4 — lower right */
+
+.float-card:nth-last-child(1) {
+  bottom: 5%;
+  right: -3%;
+}
+
+
+@keyframes floatCard {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+
+/* =========================
+   TRAITS
+   ========================= */
+
+.traits-strip {
+  border-top: 1px solid var(--line);
+  padding: 16px 0;
+}
+
+.traits-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.trait-pill {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink-soft);
+
+  background: var(--panel);
+
+  border: 1px solid var(--line);
+
+  padding: 6px 14px;
+
+  border-radius: 999px;
+}
+
+
+/* =========================
+   TABLET
+   ========================= */
+
+@media (max-width: 900px) {
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding-top: 40px;
+  }
+
+  .hero-visual {
+    order: 0;
+    min-height: 400px;
+  }
+
+  .hero-text {
+    order: 1;
+  }
+
+  .hero-text h1 {
+    max-width: 700px;
+  }
+
+  .hero-role {
+    max-width: 500px;
+  }
+
+  .hero-lede {
+    max-width: 600px;
+  }
+
+
+  /* Keep cards inside visual area */
+
+  .float-card:nth-last-child(4) {
+    left: 4%;
+  }
+
+  .float-card:nth-last-child(3) {
+    right: 4%;
+  }
+
+  .float-card:nth-last-child(2) {
+    left: 4%;
+  }
+
+  .float-card:nth-last-child(1) {
+    right: 4%;
+  }
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 600px) {
+
+  .hero {
+    padding-top: 32px;
+  }
+
+  .hero-inner {
+    gap: 28px;
+    padding: 32px 0 36px;
+  }
+
+  .hero-text {
+    text-align: center;
+  }
+
+  h1 {
+    font-size: clamp(28px, 8vw, 38px);
+    line-height: 1.1;
+  }
+
+  .hero-role {
+    font-size: 14px;
+    line-height: 1.5;
+    max-width: 100%;
+    margin-top: 12px;
+  }
+
+  .hero-statement {
+    font-size: 19px;
+    line-height: 1.4;
+  }
+
+  .hero-lede {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.65;
+  }
+
+  .hero-ctas {
+    justify-content: center;
+  }
+
+
+  /* Visual */
+
+  .hero-visual {
+    min-height: 370px;
+    width: 100%;
+  }
+
+
+  /* Photo */
+
+  .photo-frame {
+    width: min(68%, 250px);
+
+    border-radius: 24px;
+
+    box-shadow:
+      0 20px 45px -22px rgba(120, 70, 100, 0.35),
+      0 0 0 6px rgba(255, 255, 255, 0.4),
+      0 0 35px rgba(227, 143, 176, 0.10);
+  }
+
+  .photo-frame::before {
+    inset: 8px;
+    border-radius: 17px;
+  }
+
+  .photo-frame::after {
+    width: 120px;
+    height: 120px;
+  }
+
+
+  /* Background glow */
+
+  .hero-visual::before {
+    width: 290px;
+    height: 290px;
+  }
+
+  .hero-visual::after {
+    width: 270px;
+    height: 270px;
+  }
+
+
+  /* Orbit */
+
+  .hero-orbit {
+    width: 300px;
+    height: 205px;
+  }
+
+
+  /* Smaller floating cards */
+
+  .float-card {
+    min-width: 115px;
+    max-width: 135px;
+    padding: 8px 10px;
+  }
+
+  .fc-title {
+    font-size: 11px;
+  }
+
+  .fc-sub {
+    font-size: 9.5px;
+  }
+
+
+  /* Upper left */
+
+  .float-card:nth-last-child(4) {
+    top: 5%;
+    left: 0;
+  }
+
+
+  /* Upper right */
+
+  .float-card:nth-last-child(3) {
+    top: 9%;
+    right: 0;
+  }
+
+
+  /* Lower left */
+
+  .float-card:nth-last-child(2) {
+    bottom: 10%;
+    left: 0;
+  }
+
+
+  /* Lower right */
+
+  .float-card:nth-last-child(1) {
+    bottom: 2%;
+    right: 0;
+  }
+}
+
+
+/* =========================
+   VERY SMALL PHONES
+   ========================= */
+
+@media (max-width: 400px) {
+
+  .hero-inner {
+    gap: 22px;
+  }
+
+  h1 {
+    font-size: 27px;
+  }
+
+  .hero-role {
+    font-size: 13px;
+  }
+
+  .hero-statement {
+    font-size: 18px;
+  }
+
+  .hero-visual {
+    min-height: 335px;
+  }
+
+  .photo-frame {
+    width: 62%;
+    border-radius: 22px;
+  }
+
+  .photo-frame::before {
+    inset: 7px;
+    border-radius: 15px;
+  }
+
+  .photo-frame::after {
+    width: 100px;
+    height: 100px;
+  }
+
+  .hero-visual::before {
+    width: 250px;
+    height: 250px;
+  }
+
+  .hero-visual::after {
+    width: 235px;
+    height: 235px;
+  }
+
+  .hero-orbit {
+    width: 260px;
+    height: 175px;
+  }
+
+  .float-card {
+    min-width: 100px;
+    max-width: 115px;
+    padding: 7px 8px;
+  }
+
+  .fc-title {
+    font-size: 10px;
+  }
+
+  .fc-sub {
+    font-size: 8.5px;
+  }
+
+  .float-card:nth-last-child(4) {
+    top: 4%;
+    left: 0;
+  }
+
+  .float-card:nth-last-child(3) {
+    top: 8%;
+    right: 0;
+  }
+
+  .float-card:nth-last-child(2) {
+    bottom: 9%;
+    left: 0;
+  }
+
+  .float-card:nth-last-child(1) {
+    bottom: 1%;
+    right: 0;
+  }
+}
+
+
+/* =========================
+   REDUCED MOTION
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .float-card,
+  .hero-orbit {
+    animation: none;
+  }
 }

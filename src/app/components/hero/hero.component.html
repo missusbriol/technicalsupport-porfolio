@@ -2,7 +2,7 @@
   <div class="wrap hero-inner">
     <div appReveal class="reveal hero-text">
       <p class="eyebrow">Technical Customer Support Specialist</p>
-      <h1>Hi, I'm<br /><span class="script">Casandra Briol</span></h1>
+      <h1>Hi, I'm<br /><span class="script">Ma. Casandra Briol</span></h1>
       <p class="hero-role">Customer Support · L2/L3 Support · QA · Software Development</p>
       <p class="hero-statement">I bridge the gap between <span class="accent-word">customers</span> and <span class="accent-word-2">technology</span>.</p>
       <p class="hero-lede">
@@ -15,8 +15,39 @@
         <button class="btn btn-ghost" (click)="scrollTo('contact')">Let's work together</button>
       </div>
     </div>
-    <div class="hero-photo-wrap">
-      <div class="hero-photo">[YOUR PHOTO]</div>
+    <div class="hero-visual">
+
+      <div class="hero-decoration hero-decoration-1"></div>
+      <div class="hero-decoration hero-decoration-2"></div>
+      <div class="hero-decoration hero-decoration-3"></div>
+
+      <div class="hero-orbit"></div>
+
+      <div class="photo-frame">
+        <img
+          src="assets/images/profile.png"
+          alt="Profile photo"
+          class="hero-photo"
+        />
+      </div>
+
+      <div
+        class="float-card"
+        *ngFor="let c of floatCards"
+        [style.animation-delay.s]="c.delay"
+        aria-hidden="true">
+
+        <span class="fc-title">
+          {{ c.title }}
+        </span>
+
+        <span class="fc-sub">
+          <span class="fc-dot"></span>
+          {{ c.sub }}
+        </span>
+
+      </div>
+
     </div>
   </div>
   <div class="traits-strip">

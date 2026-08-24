@@ -1,0 +1,14 @@
+<div class="intro">
+  <div class="intro-inner">
+    <p class="intro-title">SUPPORT COMMAND CENTER</p>
+    <p class="intro-sub">Initializing support profile...</p>
+    <ul class="intro-list">
+      <li *ngFor="let line of lines; let i = index" [class.on]="step() > i">
+        <span>{{ line }}</span>
+        <span class="check" *ngIf="step() > i">✓</span>
+      </li>
+    </ul>
+    <p class="intro-ready" *ngIf="ready()">READY</p>
+  </div>
+  <button class="intro-skip" (click)="skip()">Skip ✕</button>
+</div>

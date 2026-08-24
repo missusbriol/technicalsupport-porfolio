@@ -14,15 +14,6 @@
         </div>
         <span class="tool-caption">{{ t.label }}</span>
       </div>
-
-      <div
-        class="tool-box tool-box-ghost"
-        *ngFor="let p of placeholders; let i = index"
-        [style.--float-delay]="(i * 0.9) + 's'"
-        [style.--float-dur]="(7 + i) + 's'">
-        <div class="tool-box-inner tool-box-inner-ghost"></div>
-        <span class="tool-caption muted">{{ p }}</span>
-      </div>
     </div>
   </div>
 </section>

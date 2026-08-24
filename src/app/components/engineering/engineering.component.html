@@ -9,7 +9,9 @@
     <div class="eng-col">
       <ng-container *ngFor="let n of nodes; let last = last">
         <div class="eng-node">{{ n }}</div>
-        <div class="eng-conn" *ngIf="!last"></div>
+        <div class="eng-conn" *ngIf="!last">
+          <div class="eng-pulse"></div>
+        </div>
       </ng-container>
     </div>
   </div>

@@ -1,1 +1,8 @@
-export interface ContactLink { id: string; label: string; value: string; mark: string; bg: string; href: string; }
+export interface ContactLink {
+  id: string;
+  label: string;
+  value: string;
+  icon: string;
+  bg: string;
+  href: string;
+}
