@@ -5,10 +5,15 @@ A modern, responsive portfolio website highlighting technical support capabiliti
 
 🛠️ Tech Stack
 Framework: Angular
+
 Language: TypeScript
+
 Styling: SCSS
+
 AI Assistance: ChatGPT & Claude Code
+
 Deployment: Vercel
+
 
 ✨ Features
 Interactive Support Workflow: Visual breakdown of troubleshooting and escalation steps.
@@ -42,6 +47,9 @@ Open your browser and navigate to http://localhost:4200/.
 
 👤 Author
 Ma. Casandra Briol
+
 Role: Technical Customer Support Specialist
+
 LinkedIn: linkedin.com/in/ma-casandra-briol
+
 Email: briolmacasandra@gmail.com
