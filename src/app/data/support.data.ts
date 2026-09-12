@@ -1,19 +1,13 @@
 export const L2: string[] = [
-  'Handled support calls',
-  'Replied to BMC tickets',
-  'Resolved user queries',
-  'Supported SharePoint',
-  'Supported OneDrive',
-  'Supported Microsoft Teams',
-  'Worked with a German company with international operations (their time zone)',
+  'Support calls and BMC ticket triage',
+  'User issue resolution and status updates',
+  'SharePoint, OneDrive, and Microsoft Teams support',
+  'International client coverage across required working hours',
 ];
 
 export const L3: string[] = [
-  'Handled support tickets',
-  'Technical investigation',
-  'Application support',
-  'Employee query support',
-  'Performed code changes',
-  'Issue resolution',
-  'Deeper troubleshooting',
+  'Application support and ticket investigation',
+  'Issue reproduction and technical analysis',
+  'Employee query resolution',
+  'Code changes and verification when required',
 ];

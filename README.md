@@ -15,7 +15,7 @@ Deployment: Vercel
 Interactive Support Workflow: Visual breakdown of troubleshooting and escalation steps.
 Toolkit Showcase: Clear display of tools and platforms used (Microsoft 365, BMC, ServiceDesk, etc.).
 Experience Roadmap: Direct mapping of background across QA, L2/L3 support, and software development.
-Resume Download: Built-in PDF resume access.
+Calendar booking: A call request can be recorded in Google Sheets and added to Google Calendar with a calendar invite for the requester.
 Dark / Light Mode: Theme toggle for customizable viewing.
 
 🚀 Local Development Setup

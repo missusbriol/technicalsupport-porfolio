@@ -12,7 +12,7 @@ export const TIMELINE: TimelineItem[] = [
     items: [
       {
         title: 'Software Development Intern, Technomancer, Inc.',
-        body: 'Started on the engineering side, learning how applications are built before ever touching a support ticket.'
+        body: 'Built a foundation in how applications are designed, developed, and maintained—context I now use when investigating support issues.'
       }
     ]
   },
@@ -22,7 +22,7 @@ export const TIMELINE: TimelineItem[] = [
     items: [
       {
         title: 'QA Analyst, Technomancer, Inc.',
-        body: 'Moved into quality assurance — reproducing issues, writing test cases, learning to separate a symptom from a root cause.'
+        body: 'Reproduced reported issues, wrote test cases, and learned to distinguish symptoms from root causes before documenting findings.'
       }
     ]
   },
@@ -31,12 +31,12 @@ export const TIMELINE: TimelineItem[] = [
     date: '02.2024 - Current',
     items: [
       {
-        title: 'Software Developer — L3 Support, Alliance Software Inc.',
-        body: 'Joined as a developer for an airline-industry client, with L3 support layered on top: tickets, employee queries, technical investigation, code changes.'
+        title: 'Software Developer & L3 Support, Alliance Software Inc.',
+        body: 'Support an airline-sector client through ticket investigation, employee queries, application troubleshooting, and code changes when needed.'
       },
       {
-        title: 'L2 Support',
-        body: 'Handling support calls and BMC tickets for a German company with international operations across SharePoint, OneDrive, and Microsoft Teams, while adapting to their working schedule.'
+        title: 'L2 Support — Microsoft 365 & BMC',
+        body: 'Handle support calls and BMC tickets for an international German client, supporting SharePoint, OneDrive, and Microsoft Teams across their working schedule.'
       }
     ]
   }

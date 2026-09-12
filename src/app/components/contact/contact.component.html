@@ -1,42 +1,93 @@
 <section id="contact" class="section contact-section">
   <div class="wrap contact-wrap">
     <div appReveal class="reveal">
-      <p class="eyebrow">Let's work together</p>
-      <h2>Ready when you are</h2>
+      <p class="eyebrow">Get in touch</p>
+      <h2>Let’s start a conversation.</h2>
       <p class="section-sub">
-        Looking for a support professional who understands both customers and technology? I'd be happy to connect.
+        Choose a convenient 20-minute time slot. Your request will be added to Ma. Casandra’s calendar and you’ll receive a calendar invitation by email.
       </p>
+
+      <div class="contact-icons" aria-label="Professional contact links">
+        <a
+          class="contact-icon"
+          *ngFor="let c of contacts"
+          [href]="c.href"
+          [title]="c.label"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          <span
+            class="contact-icon-circle"
+            [style.background]="c.bg">
+
+            <img
+              [src]="c.icon"
+              [alt]="c.label"
+            />
+
+          </span>
+
+          <span class="contact-icon-label">
+            {{ c.label }}
+          </span>
+
+          <span class="contact-icon-value muted">
+            {{ c.value }}
+          </span>
+
+        </a>
+      </div>
     </div>
 
-    <div class="contact-icons">
-      <a
-        class="contact-icon"
-        *ngFor="let c of contacts"
-        [href]="c.href"
-        [title]="c.label"
-        target="_blank"
-        rel="noopener noreferrer">
+    <form appReveal class="booking-card reveal" (ngSubmit)="submitBooking()">
+      <div class="booking-heading">
+        <span class="booking-icon" aria-hidden="true">◷</span>
+        <div>
+          <p class="booking-kicker">Request a call</p>
+          <h3>Schedule a Call with Ma. Casandra Briol.</h3>
+        </div>
+      </div>
+      <p class="booking-copy">Select a 20-minute time slot that works for you. All times are in Philippine time (PHT).</p>
 
-        <span
-          class="contact-icon-circle"
-          [style.background]="c.bg">
-
-          <img
-            [src]="c.icon"
-            [alt]="c.label"
-          />
-
-        </span>
-
-        <span class="contact-icon-label">
-          {{ c.label }}
-        </span>
-
-        <span class="contact-icon-value muted">
-          {{ c.value }}
-        </span>
-
-      </a>
-    </div>
+      <div class="form-grid">
+        <label>
+          Your name
+          <input name="name" [(ngModel)]="booking.name" required autocomplete="name" placeholder="Jane Smith" />
+        </label>
+        <label>
+          Work email
+          <input name="email" [(ngModel)]="booking.email" required type="email" autocomplete="email" placeholder="jane@company.com" />
+        </label>
+        <label>
+          Preferred date
+          <input name="date" [(ngModel)]="booking.date" (ngModelChange)="loadAvailableTimes()" required type="date" [min]="today" />
+        </label>
+        <label>
+          Preferred time
+          <select name="time" [(ngModel)]="booking.time" required [disabled]="!availableTimes.length">
+            <option value="" disabled>{{ availabilityLoading ? 'Checking availability…' : 'Select a time' }}</option>
+            <option *ngFor="let time of availableTimes" [value]="time">{{ time }} PHT</option>
+          </select>
+        </label>
+        <label class="full-width">
+          What would you like to discuss?
+          <select name="topic" [(ngModel)]="booking.topic">
+            <option>Technical support consultation</option>
+            <option>Customer support / operations role</option>
+            <option>QA or software development collaboration</option>
+            <option>Other opportunity</option>
+          </select>
+        </label>
+      </div>
+      <button class="btn btn-accent booking-submit" type="submit" [disabled]="submitting || !availableTimes.length">
+        {{ submitting ? 'Sending request…' : 'Send call request' }} <span aria-hidden="true">→</span>
+      </button>
+      <p class="booking-note" *ngIf="!bookingSent && !submissionError">Your request will be added to the calendar and shared with you by email.</p>
+      <p class="booking-note" *ngIf="availabilityLoading">Checking Ma. Casandra’s calendar…</p>
+      <p class="booking-note" *ngIf="!availabilityLoading && !availableTimes.length">No hourly slots are available on this date. Please choose another date.</p>
+      <p class="booking-error" *ngIf="availabilityError" aria-live="polite">{{ availabilityError }}</p>
+      <p class="booking-success" *ngIf="bookingSent" aria-live="polite">Thank you—your call request has been sent. Please check your email for the calendar invitation.</p>
+      <p class="booking-error" *ngIf="submissionError" aria-live="polite">{{ submissionError }}</p>
+    </form>
   </div>
 </section>

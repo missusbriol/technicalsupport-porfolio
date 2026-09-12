@@ -14,7 +14,6 @@ import { WorkflowComponent } from './components/workflow/workflow.component';
 import { AnimatedBackgroundComponent } from './shared/animated-background/animated-background.component';
 import { IntroComponent } from './shared/intro/intro.component';
 import { CommonModule } from '@angular/common';
-import { ResumeComponent } from './components/resume/resume.component';
 
 /**
  * Root component - assembles the page from the section components
@@ -25,7 +24,6 @@ import { ResumeComponent } from './components/resume/resume.component';
   selector: 'app-root',
   standalone: true,
   imports: [
-    AnimatedBackgroundComponent,
     NavbarComponent,
     HeroComponent,
     AboutComponent,
@@ -40,8 +38,7 @@ import { ResumeComponent } from './components/resume/resume.component';
     FooterComponent,
     AnimatedBackgroundComponent,
     IntroComponent,
-    CommonModule,
-    ResumeComponent
+    CommonModule
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
